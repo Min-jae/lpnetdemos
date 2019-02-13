@@ -1,1 +1,608 @@
-Hello World
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LP-WaveNet: Linear Prediction-based WaveNet Speech Synthesis
+</title>
+    <link rel="shortcut icon" href="./img/ms.jpg">
+    <link rel="icon" href="./img/ms.jpg">
+    <link rel="apple-touch-icon" href="./img/ms.jpg">
+</head>
+<body>
+
+<article>
+    <header>
+        <h1>LP-WaveNet: Linear Prediction-based WaveNet Speech Synthesis</h1>
+    </header>
+</article>
+
+<div><b>Paper:</b> Submitted to Signal Processing Letters</div>
+<div><b>Authors:</b> Min-Jae Hwang, Frank Soong, Xi Wang, Hyeonjoo Kang, and Hong-Goo Kang</div>
+<div><b>Abstract:</b> We propose a linear prediction (LP)-based waveform generation method via WaveNet framework.
+A WaveNet-based nueral vocoder, which uses speech parameters as a conditional input of WaveNet, has significantly improved the quality of statistical parametric speech synthesis system.
+However, it is still challenging to effectively train the neural vocoder when the target database becomes larger and more expressive.
+As a solution, the approaches that only generate the vocal source component by the neural vocoder have been proposed.
+However, they tend to generate synthetic noise because the vocal source component is independently handled without considering the entire speech synthesis process; where it is inevitable to come up with a mismatch between vocal source and vocal tract filter.
+To address this problem, we propose an LP-WaveNet that structurally models the vocal source in the speech training and inference processes.
+The experimental results verify that the proposed system outperforms the conventional WaveNet vocoders both objectively and subjectively.	
+</div>
+
+<div>
+    <h3>“Thompson's real problem isn't that he indulges himself, it's that he's lazy.”</h3>
+    <table>
+        <tr>
+            <td class="transcript"> ----------------------- Recorded -----------------------
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <audio controls>
+                    <source src="wav/recording_1.wav">
+                </audio>
+            </td>
+        </tr>
+        <tr>
+			<td class="transcript"> ----------------- Analysis / synthesis ------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_as_1.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_as_1.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_as_1.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_as_1.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+        <tr>
+			<td class="transcript"> ------------------------ SPSS ---------------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_spss_1.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_spss_1.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_spss_1.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_spss_1.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+		<td class="transcript">  
+		</td>
+    </table>
+</div>
+
+<div>
+    <h3>“But today, there are materials that help lock out harmful contaminants and reduce spoilage.”</h3>
+    <table>
+        <tr>
+            <td class="transcript"> ----------------------- Recorded -----------------------
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <audio controls>
+                    <source src="wav/recording_2.wav">
+                </audio>
+            </td>
+        </tr>
+        <tr>
+			<td class="transcript"> ----------------- Analysis / synthesis ------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_as_2.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_as_2.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_as_2.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_as_2.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+        <tr>
+			<td class="transcript"> ------------------------ SPSS ---------------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_spss_2.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_spss_2.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_spss_2.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_spss_2.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+		<td class="transcript">  
+		</td>
+    </table>
+</div>
+
+<div>
+    <h3>“You wouldn't have to declare a building empty when it wasn't.”</h3>
+    <table>
+        <tr>
+            <td class="transcript"> ----------------------- Recorded -----------------------
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <audio controls>
+                    <source src="wav/recording_3.wav">
+                </audio>
+            </td>
+        </tr>
+        <tr>
+			<td class="transcript"> ----------------- Analysis / synthesis ------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_as_3.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_as_3.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_as_3.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_as_3.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+        <tr>
+			<td class="transcript"> ------------------------ SPSS ---------------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_spss_3.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_spss_3.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_spss_3.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_spss_3.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+		<td class="transcript">  
+		</td>
+    </table>
+</div>
+
+<div>
+    <h3>“The incident fractured his skull and broke two vertebrae in his neck.”</h3>
+    <table>
+        <tr>
+            <td class="transcript"> ----------------------- Recorded -----------------------
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <audio controls>
+                    <source src="wav/recording_4.wav">
+                </audio>
+            </td>
+        </tr>
+        <tr>
+			<td class="transcript"> ----------------- Analysis / synthesis ------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_as_4.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_as_4.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_as_4.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_as_4.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+        <tr>
+			<td class="transcript"> ------------------------ SPSS ---------------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_spss_4.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_spss_4.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_spss_4.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_spss_4.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+		<td class="transcript">  
+		</td>
+    </table>
+</div>
+
+<div>
+    <h3>“She loves photography, but already has more expensive equipment than I could get her.”</h3>
+    <table>
+        <tr>
+            <td class="transcript"> ----------------------- Recorded -----------------------
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <audio controls>
+                    <source src="wav/recording_5.wav">
+                </audio>
+            </td>
+        </tr>
+        <tr>
+			<td class="transcript"> ----------------- Analysis / synthesis ------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_as_5.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_as_5.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_as_5.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_as_5.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+        <tr>
+			<td class="transcript"> ------------------------ SPSS ---------------------------
+			</td>
+			</tr>
+				<td class="transcript"> STRAIGHT
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/str_spss_5.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet speech model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/spch_spss_5.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> WaveNet excitation model
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/exc_spss_5.wav">
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td class="transcript"> LP-WaveNet
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<audio controls>
+						<source src="wav/lpnet_spss_5.wav">
+					</audio>
+				</td>
+			</tr>
+        </tr>
+		<td class="transcript">  
+		</td>
+    </table>
+</div>
+
+
+</body>
+
+
+</html>
